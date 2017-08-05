@@ -26,7 +26,7 @@ favicon: img/avatar.png
 subnav:
   mail: "http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=PAkNDgsKBQ4MCnxNTRJfU1E"
   github: "https://github.com/ruitian"
-  zhihu: "https://www.zhihu.com/people/dong-bing-we"
+  zhihu: "https://www.zhihu.com/people/dong-bing-wei"
   weibo: "http://weibo.com/u/3925574605"
   # google: "#"
   # twitter: "#"
@@ -46,14 +46,14 @@ subnav:
 # Chose ONE as your comment system and keep others disable.
 # 选一个作为网站评论系统，其他保持禁用。
 
-disqus: 
+disqus:
   #on: true
-  shortname: 
+  shortname:
   # https://help.disqus.com/customer/en/portal/articles/466208-what-s-a-shortname-
-  # It is unnecessary to enable disqus here if 
-  # you have set "disqus_shortname" in your site's "_config.yml" 
+  # It is unnecessary to enable disqus here if
+  # you have set "disqus_shortname" in your site's "_config.yml"
 
-duoshuo: 
+duoshuo:
   on: false
   domain: ruitian
   # 是否开启多说评论，http://duoshuo.com/create-site/
@@ -87,27 +87,27 @@ highlight_style:
   # Set inline_code to style highlight text
   # Chose a highlight theme for code block
   # 通过 inline_code 切换内置文本高亮样式 Value: 0 - 9 可选
-  # 通过 code_block 切换内置代码高亮配色主题  Value: 0 - 4 
+  # 通过 code_block 切换内置代码高亮配色主题  Value: 0 - 4
 
 blockquote_style:
   #on: true
-  blockquote: 1  # Value: 0 - 7 可选
+  blockquote: 0  # Value: 0 - 7 可选
   # 自定义文章「引用部分」的样式
 
 # 左边栏宽度 px
 left_col_width: 300
 
 # 目录中标题不换行
-# Keep TOC title on the same line | 
-toc_nowrap: false
+# Keep TOC title on the same line |
+toc_nowrap: true
 
 # 自定义"阅读全文"链接按钮的显示文字
 # Customize the text on excerpt link
-excerpt_link: 继续阅读#修改more>>的文字
+excerpt_link: 展开全文
 
 # 是否显示边栏中的搜索框（仅样式，未添加搜索功能）
 # Search Box in left column
-# search_box: true
+search_box: true
 
 # 是否开启主页及加载头像时的动画效果
 # Animation in Homepage and Loading avatar
@@ -149,7 +149,7 @@ mathjax: false
 
 # Socail Share | 是否开启分享
 # share: true
-baidushare: true
+baidushare: false
 #showshare: true
 
 # 百度、谷歌站长验证。填写 HTML 标签 content
