@@ -61,12 +61,14 @@ duoshuo:
   # http://<要填的部分>.duoshuo.com (domain只填上<>里的内容，不要填整个网址)
 
 youyan:
-  on: true
+  on: false
   id: 2123953
   # 是否开启友言评论，http://www.uyan.cc/index.php
   # id 中填写你的友言用户数字ID，注册后进入后台管理即可查看
   # 友言服务在 Web 环境下运行，普通本地环境无法查看，请部署后在线上测试。
 
+changyan:
+  on: true
 
 # >>> Style Customisation 样式自定义 <<<
 
@@ -75,7 +77,7 @@ youyan:
 ## "on: true": 自动随机显示这5张图片
 ## "on: false": 自定义显示图片设置background_image: 5
 background:
-  on: true
+  on: false
   #on: false
   background_sum: 24
   background_image: 109
@@ -103,7 +105,7 @@ toc_nowrap: true
 
 # 自定义"阅读全文"链接按钮的显示文字
 # Customize the text on excerpt link
-excerpt_link: 展开全文
+excerpt_link: 继续阅读
 
 # 是否显示边栏中的搜索框（仅样式，未添加搜索功能）
 # Search Box in left column

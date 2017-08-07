@@ -7,15 +7,15 @@ title: 万事静心
 subtitle: 让一切从头开始
 description:
 author: Bing Wei
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://ruitian.github.io
 root: /
-# permalink: :year/:month/:day/:title/
-permalink: :category/:title/
+permalink: :year:month:day/:title/
+# permalink: :category/:title/
 permalink_defaults:
 
 # Directory
@@ -23,7 +23,7 @@ source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archives
-category_dir: about
+category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
@@ -64,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: spfk
+theme: material
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -72,3 +72,7 @@ deploy:
   type: git
   repo: https://github.com/ruitian/ruitian.github.io.git
   branch: master
+
+links:
+  link: http://hufangyun.com
+  title: 小猿大圣
