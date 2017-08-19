@@ -2,8 +2,11 @@
 title: 今夜小记
 date: 2017-02-02 20:13:55
 tags: 随笔
+thumbnail: https://ws3.sinaimg.cn/large/006tKfTcly1fiovwgoeslj31kw2dcqvc.jpg
 ---
-
+   <div class="justified-gallery">
+    <img src="https://ws3.sinaimg.cn/large/006tKfTcly1fiovwgoeslj31kw2dcqvc.jpg">
+   </div>
 　　从今天开始，真的就是2017年的开始了。
 
 　　早晨4点半就从被窝里爬了出来，是为了能够搭载出租车去济南赶上进京的G336列车，还打扰了母亲没能睡个好觉。从家到北京，一共花了6个小时，到出租屋之后，便是一顿的收拾。当看到整洁的屋子的时，我觉得是时候做个总结和规划了。
