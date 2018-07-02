@@ -158,6 +158,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ReentrantLock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/20180702/ReentrantLock/">ReentrantLock实现原理</a>
+    </h1>
+  
+
+        
+        <a href="/20180702/ReentrantLock/" class="archive-article-date">
+  	<time datetime="2018-07-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用<strong>Synchronize</strong>，锁的获取和释放都是隐式的，实现的原理是通过编译后加上不同的机器指令来实现。<br>而<strong>ReentrantLock</strong>就是一个普通的类，它是基于AQS(AbstractQueueSynchronizer)来实现的。<br>是一个<strong>重入锁</strong>：一个线程在获取锁之后可以反复的加锁，不会出现自己阻塞自己的情况。</p>
+<h3 id="锁类型"><a href="#锁类型" class="headerlink" title="锁类型"></a>锁类型</h3><p>ReentrantLock分为<strong>公平锁</strong>和<strong>非公平锁</strong>，通过构造方法指定类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认非公平锁</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    sync = <span class="keyword">new</span> NonfairSync();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 公平锁</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">(<span class="keyword">boolean</span> fair)</span> </span>&#123;</span><br><span class="line">    sync = fair ? <span class="keyword">new</span> FairSync() : <span class="keyword">new</span> NonfairSync();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>默认一般使用非公平锁，它的效率和吞吐量都比公平锁高的多(后面会分析具体原因)。<br>
+        
+          <a class="article-more-a" href="/20180702/ReentrantLock/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/20180702/ReentrantLock/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-AbstractQueuedSynchronizer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -243,85 +322,6 @@
 
 
   
-    <article id="post-ReentrantLock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20180702/ReentrantLock/">ReentrantLock实现原理</a>
-    </h1>
-  
-
-        
-        <a href="/20180702/ReentrantLock/" class="archive-article-date">
-  	<time datetime="2018-07-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用<strong>Synchronize</strong>，锁的获取和释放都是隐式的，实现的原理是通过编译后加上不同的机器指令来实现。<br>而<strong>ReentrantLock</strong>就是一个普通的类，它是基于AQS(AbstractQueueSynchronizer)来实现的。<br>是一个<strong>重入锁</strong>：一个线程在获取锁之后可以反复的加锁，不会出现自己阻塞自己的情况。</p>
-<h3 id="锁类型"><a href="#锁类型" class="headerlink" title="锁类型"></a>锁类型</h3><p>ReentrantLock分为<strong>公平锁</strong>和<strong>非公平锁</strong>，通过构造方法指定类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认非公平锁</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    sync = <span class="keyword">new</span> NonfairSync();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 公平锁</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">(<span class="keyword">boolean</span> fair)</span> </span>&#123;</span><br><span class="line">    sync = fair ? <span class="keyword">new</span> FairSync() : <span class="keyword">new</span> NonfairSync();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>默认一般使用非公平锁，它的效率和吞吐量都比公平锁高的多(后面会分析具体原因)。<br>
-        
-          <a class="article-more-a" href="/20180702/ReentrantLock/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/20180702/ReentrantLock/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-javaInterview1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -378,93 +378,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/20180702/javaInterview1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20180701/https/">Https 简单入门</a>
-    </h1>
-  
-
-        
-        <a href="/20180701/https/" class="archive-article-date">
-  	<time datetime="2018-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>http协议传输的数据都是在网络上明文裸奔的，这样很容易会被网络的中间节点<strong>窃听</strong>、<strong>篡改</strong>、<strong>冒充</strong>。</p>
-<p>http向https的演变过程，可以模拟成下面几步。</p>
-<h3 id="1-对称加密"><a href="#1-对称加密" class="headerlink" title="1. 对称加密"></a>1. 对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  Client  --------  Server</span><br><span class="line">          ① 对称加密      </span><br><span class="line">    |     ------&gt;   | 解密</span><br><span class="line">          ② 对称加密</span><br><span class="line">解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
-<p>客户端和服务端使用对称解密算法例如AES，传输前对数据加密，然后由对方解密的方式。但这种方式在对外的web服务场景下行不通，因为需要对外暴露对称算法的钥匙。</p>
-<h3 id="2-非对称加密"><a href="#2-非对称加密" class="headerlink" title="2. 非对称加密"></a>2. 非对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      Client  ---- 🐶 ----  Server</span><br><span class="line">              ① 公钥加密      </span><br><span class="line">        |     ------&gt;   | 私钥解密</span><br><span class="line">              ② 私钥加密</span><br><span class="line">公钥解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
-<p>采用非对称加密算法只需要对外暴露同一把公钥。 这样客户端使用公钥加密，中间人(那只🐶)无法窃听数据，服务端私钥解密。然后服务端使用私钥加密，中间人无法冒充，客户端再通过公钥解密。</p>
-<p>这个过程解决了一些问题，但还是有很多安全风险</p>
-<ul>
-<li>传输第①步，公钥加密的数据虽然不能被中间人窃听，但是中间人可以自己采用公开的公钥来重新生成数据，达到篡改的目的。</li>
-<li>传输第②步，私钥加密的数据虽然不能被中间人冒充，但是中间人可以使用公钥来窃听数据。</li>
-</ul>
-<p>除此之外，非对称加密的比对称加密更加消耗cpu资源<br>总结来说，采用非对称加密，解决了中间人冒充的问题，但不能解决数据篡改和数据窃听的问题。<br>
-        
-          <a class="article-more-a" href="/20180701/https/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HTTP TCP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/20180701/https/">展开全文 >></a>
         </p>
       
 
@@ -629,6 +542,93 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/20180701/paixu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/20180701/https/">Https 简单入门</a>
+    </h1>
+  
+
+        
+        <a href="/20180701/https/" class="archive-article-date">
+  	<time datetime="2018-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>http协议传输的数据都是在网络上明文裸奔的，这样很容易会被网络的中间节点<strong>窃听</strong>、<strong>篡改</strong>、<strong>冒充</strong>。</p>
+<p>http向https的演变过程，可以模拟成下面几步。</p>
+<h3 id="1-对称加密"><a href="#1-对称加密" class="headerlink" title="1. 对称加密"></a>1. 对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  Client  --------  Server</span><br><span class="line">          ① 对称加密      </span><br><span class="line">    |     ------&gt;   | 解密</span><br><span class="line">          ② 对称加密</span><br><span class="line">解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
+<p>客户端和服务端使用对称解密算法例如AES，传输前对数据加密，然后由对方解密的方式。但这种方式在对外的web服务场景下行不通，因为需要对外暴露对称算法的钥匙。</p>
+<h3 id="2-非对称加密"><a href="#2-非对称加密" class="headerlink" title="2. 非对称加密"></a>2. 非对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      Client  ---- 🐶 ----  Server</span><br><span class="line">              ① 公钥加密      </span><br><span class="line">        |     ------&gt;   | 私钥解密</span><br><span class="line">              ② 私钥加密</span><br><span class="line">公钥解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
+<p>采用非对称加密算法只需要对外暴露同一把公钥。 这样客户端使用公钥加密，中间人(那只🐶)无法窃听数据，服务端私钥解密。然后服务端使用私钥加密，中间人无法冒充，客户端再通过公钥解密。</p>
+<p>这个过程解决了一些问题，但还是有很多安全风险</p>
+<ul>
+<li>传输第①步，公钥加密的数据虽然不能被中间人窃听，但是中间人可以自己采用公开的公钥来重新生成数据，达到篡改的目的。</li>
+<li>传输第②步，私钥加密的数据虽然不能被中间人冒充，但是中间人可以使用公钥来窃听数据。</li>
+</ul>
+<p>除此之外，非对称加密的比对称加密更加消耗cpu资源<br>总结来说，采用非对称加密，解决了中间人冒充的问题，但不能解决数据篡改和数据窃听的问题。<br>
+        
+          <a class="article-more-a" href="/20180701/https/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HTTP TCP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/20180701/https/">展开全文 >></a>
         </p>
       
 
@@ -916,7 +916,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">HTTP TCP</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,11 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">HTTP TCP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
