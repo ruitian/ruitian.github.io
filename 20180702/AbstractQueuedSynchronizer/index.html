@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="万事静心">
 <meta property="og:description" content="概述AbstractQueuedSynchronizer实现了最核心的多线程同步语义，只要继承AbstractQueuedSynchronizer类就可以方便的实现自己的线程同步器，Java中Lock就是继承此类。在类结构中，AbstractOwnableSynchronizer仅有的两个方法是提供当前独占模式的线程设置： 12345678910111213141516171819202122pr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-02T09:08:10.625Z">
+<meta property="og:updated_time" content="2018-07-03T02:45:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AbstractQueuedSynchronizer">
 <meta name="twitter:description" content="概述AbstractQueuedSynchronizer实现了最核心的多线程同步语义，只要继承AbstractQueuedSynchronizer类就可以方便的实现自己的线程同步器，Java中Lock就是继承此类。在类结构中，AbstractOwnableSynchronizer仅有的两个方法是提供当前独占模式的线程设置： 12345678910111213141516171819202122pr">
@@ -183,6 +183,7 @@
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>AbstractQueuedSynchronizer实现了最核心的多线程同步语义，只要继承AbstractQueuedSynchronizer类就可以方便的实现自己的线程同步器，Java中Lock就是继承此类。<br>在类结构中，AbstractOwnableSynchronizer仅有的两个方法是提供当前独占模式的线程设置：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Thread exclusiveOwnerThread;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Sets the thread that currently owns exclusive access.</span></span><br><span class="line"><span class="comment">    * A &#123;<span class="doctag">@code</span> null&#125; argument indicates that no thread owns access.</span></span><br><span class="line"><span class="comment">    * This method does not otherwise impose any synchronization or</span></span><br><span class="line"><span class="comment">    * &#123;<span class="doctag">@code</span> volatile&#125; field accesses.</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> thread the owner thread</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setExclusiveOwnerThread</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">    exclusiveOwnerThread = thread;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Returns the thread last set by &#123;<span class="doctag">@code</span> setExclusiveOwnerThread&#125;,</span></span><br><span class="line"><span class="comment">    * or &#123;<span class="doctag">@code</span> null&#125; if never set.  This method does not otherwise</span></span><br><span class="line"><span class="comment">    * impose any synchronization or &#123;<span class="doctag">@code</span> volatile&#125; field accesses.</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> the owner thread</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> Thread <span class="title">getExclusiveOwnerThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> exclusiveOwnerThread;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>exclusiveOwnerThread代表的是当前获得同步的线程，因为是独占模式，在exclusiveOwnerThread持有同步的过程中其他的线程的任何同步获取请求将不能得到满足。</p>
 <p>AbstractQueuedSynchronizer不仅支持独占模式下的同步实现，还支持共享模式下的同步实现。。在java的锁的实现上就有共享锁和独占锁的区别，而这些实现都是基于AbstractQueuedSynchronizer对于共享同步和独占同步的支持。<br>AbstractQueuedSynchronizer的API大概分为三类：</p>
 <ul>
@@ -276,18 +277,18 @@
   
 <nav id="article-nav">
   
-    <a href="/20180702/ReentrantLock/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/20180702/javaInterview1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          ReentrantLock实现原理
+          Java面试知识点汇总(一)
         
       </div>
     </a>
   
   
-    <a href="/20180702/javaInterview1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java面试知识点汇总(一)</div>
+    <a href="/20180702/ReentrantLock/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ReentrantLock实现原理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -419,7 +420,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">HTTP TCP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,7 +428,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">HTTP TCP</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
