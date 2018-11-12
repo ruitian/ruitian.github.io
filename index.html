@@ -158,91 +158,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-javaInterview1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/20180702/javaInterview1/">Java面试知识点汇总(一)</a>
-    </h1>
-  
-
-        
-        <a href="/20180702/javaInterview1/" class="archive-article-date">
-  	<time datetime="2018-07-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Java中的四种引用及应用场景是什么？"><a href="#Java中的四种引用及应用场景是什么？" class="headerlink" title="Java中的四种引用及应用场景是什么？"></a>Java中的四种引用及应用场景是什么？</h3><ul>
-<li>强引用：通常new操作符创建一个对象时所返回的引用即为强引用</li>
-<li>软引用：若一个对象只能通过软引用到达，那么这个对象在内存不足时会被回收</li>
-<li>弱引用：若一个对象只能通过弱引用到达，那么它就会被回收（即使内存充足）</li>
-<li>虚引用：虚引用是Java只最‘弱’的引用，通过它甚至不能获取被应用的对象，它存在的唯一作用就是当它指向的对象回收时，它本身会被加入到引用队列中，这样我们可以知道它指向的对象何时被销毁。</li>
-</ul>
-<h3 id="ArrayList-LinkedList-Vector的区别是什么？"><a href="#ArrayList-LinkedList-Vector的区别是什么？" class="headerlink" title="ArrayList, LinkedList, Vector的区别是什么？"></a>ArrayList, LinkedList, Vector的区别是什么？</h3><ul>
-<li>ArrayList: 内部采用数组存储元素，支持高效随机访问，支持动态调整大小</li>
-<li>LinkedList: 内部采用链表来存储元素，支持快速插入/删除元素，但不支持高效地随机访问</li>
-<li>Vector: 可以看作线程安全版的ArrayList
-        
-          <a class="article-more-a" href="/20180702/javaInterview1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/20180702/javaInterview1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-AbstractQueuedSynchronizer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -399,40 +314,38 @@
 
 
   
-    <article id="post-https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-javaInterview1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/20180701/https/">Https 简单入门</a>
+      <a class="article-title" href="/20180702/javaInterview1/">Java面试知识点汇总(一)</a>
     </h1>
   
 
         
-        <a href="/20180701/https/" class="archive-article-date">
-  	<time datetime="2018-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
+        <a href="/20180702/javaInterview1/" class="archive-article-date">
+  	<time datetime="2018-07-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>http协议传输的数据都是在网络上明文裸奔的，这样很容易会被网络的中间节点<strong>窃听</strong>、<strong>篡改</strong>、<strong>冒充</strong>。</p>
-<p>http向https的演变过程，可以模拟成下面几步。</p>
-<h3 id="1-对称加密"><a href="#1-对称加密" class="headerlink" title="1. 对称加密"></a>1. 对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  Client  --------  Server</span><br><span class="line">          ① 对称加密      </span><br><span class="line">    |     ------&gt;   | 解密</span><br><span class="line">          ② 对称加密</span><br><span class="line">解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
-<p>客户端和服务端使用对称解密算法例如AES，传输前对数据加密，然后由对方解密的方式。但这种方式在对外的web服务场景下行不通，因为需要对外暴露对称算法的钥匙。</p>
-<h3 id="2-非对称加密"><a href="#2-非对称加密" class="headerlink" title="2. 非对称加密"></a>2. 非对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      Client  ---- 🐶 ----  Server</span><br><span class="line">              ① 公钥加密      </span><br><span class="line">        |     ------&gt;   | 私钥解密</span><br><span class="line">              ② 私钥加密</span><br><span class="line">公钥解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
-<p>采用非对称加密算法只需要对外暴露同一把公钥。 这样客户端使用公钥加密，中间人(那只🐶)无法窃听数据，服务端私钥解密。然后服务端使用私钥加密，中间人无法冒充，客户端再通过公钥解密。</p>
-<p>这个过程解决了一些问题，但还是有很多安全风险</p>
-<ul>
-<li>传输第①步，公钥加密的数据虽然不能被中间人窃听，但是中间人可以自己采用公开的公钥来重新生成数据，达到篡改的目的。</li>
-<li>传输第②步，私钥加密的数据虽然不能被中间人冒充，但是中间人可以使用公钥来窃听数据。</li>
+        <h3 id="Java中的四种引用及应用场景是什么？"><a href="#Java中的四种引用及应用场景是什么？" class="headerlink" title="Java中的四种引用及应用场景是什么？"></a>Java中的四种引用及应用场景是什么？</h3><ul>
+<li>强引用：通常new操作符创建一个对象时所返回的引用即为强引用</li>
+<li>软引用：若一个对象只能通过软引用到达，那么这个对象在内存不足时会被回收</li>
+<li>弱引用：若一个对象只能通过弱引用到达，那么它就会被回收（即使内存充足）</li>
+<li>虚引用：虚引用是Java只最‘弱’的引用，通过它甚至不能获取被应用的对象，它存在的唯一作用就是当它指向的对象回收时，它本身会被加入到引用队列中，这样我们可以知道它指向的对象何时被销毁。</li>
 </ul>
-<p>除此之外，非对称加密的比对称加密更加消耗cpu资源<br>总结来说，采用非对称加密，解决了中间人冒充的问题，但不能解决数据篡改和数据窃听的问题。<br>
+<h3 id="ArrayList-LinkedList-Vector的区别是什么？"><a href="#ArrayList-LinkedList-Vector的区别是什么？" class="headerlink" title="ArrayList, LinkedList, Vector的区别是什么？"></a>ArrayList, LinkedList, Vector的区别是什么？</h3><ul>
+<li>ArrayList: 内部采用数组存储元素，支持高效随机访问，支持动态调整大小</li>
+<li>LinkedList: 内部采用链表来存储元素，支持快速插入/删除元素，但不支持高效地随机访问</li>
+<li>Vector: 可以看作线程安全版的ArrayList
         
-          <a class="article-more-a" href="/20180701/https/#more">more >></a>
+          <a class="article-more-a" href="/20180702/javaInterview1/#more">more >></a>
         
       
 
@@ -446,7 +359,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HTTP TCP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -456,7 +369,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/20180701/https/">展开全文 >></a>
+          <a class="article-more-a" href="/20180702/javaInterview1/">展开全文 >></a>
         </p>
       
 
@@ -535,6 +448,93 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/20180701/paixu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/20180701/https/">Https 简单入门</a>
+    </h1>
+  
+
+        
+        <a href="/20180701/https/" class="archive-article-date">
+  	<time datetime="2018-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>http协议传输的数据都是在网络上明文裸奔的，这样很容易会被网络的中间节点<strong>窃听</strong>、<strong>篡改</strong>、<strong>冒充</strong>。</p>
+<p>http向https的演变过程，可以模拟成下面几步。</p>
+<h3 id="1-对称加密"><a href="#1-对称加密" class="headerlink" title="1. 对称加密"></a>1. 对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  Client  --------  Server</span><br><span class="line">          ① 对称加密      </span><br><span class="line">    |     ------&gt;   | 解密</span><br><span class="line">          ② 对称加密</span><br><span class="line">解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
+<p>客户端和服务端使用对称解密算法例如AES，传输前对数据加密，然后由对方解密的方式。但这种方式在对外的web服务场景下行不通，因为需要对外暴露对称算法的钥匙。</p>
+<h3 id="2-非对称加密"><a href="#2-非对称加密" class="headerlink" title="2. 非对称加密"></a>2. 非对称加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      Client  ---- 🐶 ----  Server</span><br><span class="line">              ① 公钥加密      </span><br><span class="line">        |     ------&gt;   | 私钥解密</span><br><span class="line">              ② 私钥加密</span><br><span class="line">公钥解密 |     &lt;------   |</span><br></pre></td></tr></table></figure>
+<p>采用非对称加密算法只需要对外暴露同一把公钥。 这样客户端使用公钥加密，中间人(那只🐶)无法窃听数据，服务端私钥解密。然后服务端使用私钥加密，中间人无法冒充，客户端再通过公钥解密。</p>
+<p>这个过程解决了一些问题，但还是有很多安全风险</p>
+<ul>
+<li>传输第①步，公钥加密的数据虽然不能被中间人窃听，但是中间人可以自己采用公开的公钥来重新生成数据，达到篡改的目的。</li>
+<li>传输第②步，私钥加密的数据虽然不能被中间人冒充，但是中间人可以使用公钥来窃听数据。</li>
+</ul>
+<p>除此之外，非对称加密的比对称加密更加消耗cpu资源<br>总结来说，采用非对称加密，解决了中间人冒充的问题，但不能解决数据篡改和数据窃听的问题。<br>
+        
+          <a class="article-more-a" href="/20180701/https/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HTTP TCP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/20180701/https/">展开全文 >></a>
         </p>
       
 
@@ -730,39 +730,30 @@
 
 
   
-    <article id="post-new" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-LinkList" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/20170202/new/">今夜小记</a>
+      <a class="article-title" href="/20160203/LinkList/">单链表的基本操作</a>
     </h1>
   
 
         
-        <a href="/20170202/new/" class="archive-article-date">
-  	<time datetime="2017-02-02T12:13:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
+        <a href="/20160203/LinkList/" class="archive-article-date">
+  	<time datetime="2016-02-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>   <div class="justified-gallery"><br>    <img src="https://ws3.sinaimg.cn/large/006tKfTcly1fiovwgoeslj31kw2dcqvc.jpg"><br>   </div><br>　　从今天开始，真的就是2017年的开始了。</p>
-<p>　　早晨4点半就从被窝里爬了出来，是为了能够搭载出租车去济南赶上进京的G336列车，还打扰了母亲没能睡个好觉。从家到北京，一共花了6个小时，到出租屋之后，便是一顿的收拾。当看到整洁的屋子的时，我觉得是时候做个总结和规划了。</p>
-<p>　　自从2016年4月份到现在，我已经离开<br>公司的氛围很好，leader很注重你个人的发展，他会用不同的方法让你自己去思考问题，并且总结自己。我去之后发现比我大一届的师长师姐，的确很出色，也很是让我羡慕。当然，在走向出色的这条路上是很艰辛的。不是说自己不能吃苦，要离开这个自己认为很棒的公司，主要自己想趁着自己的这个特殊时期，利用好机会，多去看一下，所以选择了离开。现在来到这个公司，自己想稳定下来了，所做的东西也是自己感兴趣的，因为还有半个学期就要毕业了，所以自己的新年愿望就是能够顺利毕业和就业，还希望能够碰见有缘的人。</p>
-<p>　　对新的一年展望还没有想好，不过自己有列简单的清单，就是希望自己新的生活能够过得很有条理。</p>
-<p><strong>这些是工作之外的东西(是生活能够有意义)</strong></p>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked> 学会吉他，完成高中时的目标</li>
-<li style="list-style: none"><input type="checkbox" checked> 转遍北京城</li>
-<li style="list-style: none"><input type="checkbox" checked> 拍摄动感影集，送给她</li>
-<li style="list-style: none"><input type="checkbox" checked> 准备毕业旅行(较近的)</li>
-<li style="list-style: none"><input type="checkbox" checked> 学会装扮自己</li>
-</ul>
-
+        <h3 id="构建链表"><a href="#构建链表" class="headerlink" title="构建链表"></a>构建链表</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkList</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        Node next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">int</span> data;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.data = data;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Node head = <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/20160203/LinkList/#more">more >></a>
+        
       
 
       
@@ -775,7 +766,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -785,7 +776,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/20170202/new/">展开全文 >></a>
+          <a class="article-more-a" href="/20160203/LinkList/">展开全文 >></a>
         </p>
       
 
